@@ -14,8 +14,8 @@
         Route="MainPage" />
 
         <ShellContent
-        Title="Etudiant"
-        ContentTemplate="{DataTemplate Views:Etudiant}"
+        Title="Etudiants"
+        ContentTemplate="{DataTemplate Views:EtudiantsPage}"
         Route="MainPage" />
 
         <ShellContent
@@ -24,8 +24,8 @@
         Route="MainPage" />
 
         <ShellContent
-        Title="Activite"
-        ContentTemplate="{DataTemplate Views:Activite}"
+        Title="Activites"
+        ContentTemplate="{DataTemplate Views:ActivitesPage}"
         Route="MainPage" />
     </TabBar>
 </Shell>
