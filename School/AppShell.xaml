@@ -17,5 +17,10 @@
         Title="Etudiant"
         ContentTemplate="{DataTemplate Views:Etudiant}"
         Route="MainPage" />
+
+        <ShellContent
+        Title="Enseignant"
+        ContentTemplate="{DataTemplate Views:Enseignant}"
+        Route="MainPage" />
     </TabBar>
 </Shell>
