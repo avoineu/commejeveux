@@ -22,5 +22,15 @@
         Title="Enseignant"
         ContentTemplate="{DataTemplate Views:Enseignant}"
         Route="MainPage" />
+
+        <ShellContent
+        Title="Activite"
+        ContentTemplate="{DataTemplate Views:Activite}"
+        Route="MainPage" />
+
+        <ShellContent
+        Title="Bulletin"
+        ContentTemplate="{DataTemplate Views:Bulletin}"
+        Route="MainPage" />
     </TabBar>
 </Shell>
