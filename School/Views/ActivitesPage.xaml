@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="School.Views.ActivitesPage"
              Title="Activites">
-    <VerticalStackLayout>
+    <StackLayout>
         <Label 
             Text="Acitivité siuu"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            HorizontalOptions="Center" 
+            FontSize="42"/>
+
+        <Entry Placeholder="Nom de l'activité" x:Name="ActivityNameEntry" VerticalOptions="Center"/>
+        <Entry Placeholder="Trigramme de l'activité" x:Name="ActivityCodeEntry" VerticalOptions="Center"/>
+        <Entry Placeholder="Nombre d'Ects de l'activité" x:Name="EctsEntry" VerticalOptions="Center"/>
+
+        <Button Text="Add Activty"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
 </ContentPage>

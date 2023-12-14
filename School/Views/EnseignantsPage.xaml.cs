@@ -27,6 +27,7 @@ public partial class EnseignantsPage : ContentPage
         {
             string firstname = FirstnameEntry.Text;
             string lastname = LastnameEntry.Text;
+			Console.WriteLine("Hi");
 
             if (int.TryParse(SalaryEntry.Text, out int salary))
             {
