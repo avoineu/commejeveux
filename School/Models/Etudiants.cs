@@ -1,4 +1,4 @@
-﻿namespace School.ViewModels;
+﻿namespace School.Models;
 
 public class Etudiants : Persons
 {

@@ -1,4 +1,4 @@
-﻿namespace School.ViewModels;
+﻿namespace School.Models;
 
 public abstract class Evaluations
 {

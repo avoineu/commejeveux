@@ -3,10 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="School.Views.EnseignantsPage"
              Title="Enseignant">
-    <VerticalStackLayout>
+    <StackLayout>
         <Label 
-            Text="Liste des Enseignants!"
+            Text="Liste des Enseignants !"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            HorizontalOptions="Center"
+            FontSize="22" />
+
+        <Entry Placeholder="Firstname" x:Name="FirstnameEntry" VerticalOptions="Center"/>
+        <Entry Placeholder="Lastname" x:Name="LastnameEntry" VerticalOptions="Center"/>
+        <Entry Placeholder="Salary" x:Name="SalaryEntry" VerticalOptions="Center"/>
+
+        <Button Text="Add Teacher"
+                Clicked="OnAddTeacherClicked"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+
+        <Label Text="List of Teachers:" VerticalOptions="Center" HorizontalOptions="Center" />
+        <ListView ItemsSource="{Binding enseignantsList}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding DisplayName}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
 </ContentPage>

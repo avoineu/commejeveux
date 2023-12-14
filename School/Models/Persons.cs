@@ -1,4 +1,4 @@
-﻿namespace School.ViewModels;
+﻿namespace School.Models;
 
 public class Persons
 {
@@ -10,7 +10,7 @@ public class Persons
     }
 
     public string DisplayName() {
-        return String.Format("{0} {1}", firstname, lastname);
+        return String.Format("{0} {1}", lastname, firstname);
     }
 
     public string Firstname {
