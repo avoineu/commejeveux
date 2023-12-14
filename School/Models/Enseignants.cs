@@ -1,6 +1,6 @@
 ﻿namespace School.ViewModels;
 
-internal class Enseignants : Persons
+public class Enseignants : Persons
 {
     private int salary;
     public Enseignants(string firstname, string lastname, int salary) : base(firstname, lastname) {
