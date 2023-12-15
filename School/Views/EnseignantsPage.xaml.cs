@@ -16,6 +16,10 @@ public partial class EnseignantsPage : ContentPage
 
 		BindingContext = this;
 
+		foreach(var ens in Enseignants.LoadAll()) {
+			enseignantsList.Add(ens);
+		}
+
 		//stackLayout = new StackLayout();
 
 		//var listView = new ListView();

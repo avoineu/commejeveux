@@ -32,17 +32,19 @@ public class Enseignants : Persons
 
     public static Enseignants Load(string filename)
         {
+            
             filename = System.IO.Path.Combine(Config.RootDir, filename);
+            Console.WriteLine(filename);
 
             if (!File.Exists(filename))
                 throw new FileNotFoundException("Unable to find file on local storage.", filename);
 
             var content = File.ReadAllText(filename);
 
-            var tokens = content.Split();
+            var tokens = content.Split('\n');
 
 
-
+            Console.WriteLine("OK: {0}, {1}, {2}", tokens[0], tokens[1], tokens[2]);
             return
                 new(tokens[0], tokens[1], Convert.ToInt32(tokens[2]))
                 {
