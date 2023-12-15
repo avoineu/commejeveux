@@ -26,12 +26,12 @@ public class Enseignants : Persons
 
     public void Save() {
         string content = String.Format("{0}\n{1}\n{2}", Firstname, Lastname, Salary);
-        File.WriteAllText(System.IO.Path.Combine(FileSystem.AppDataDirectory, Filename), content);
+        File.WriteAllText(System.IO.Path.Combine(Config.RootDir, Filename), content);
     }
 
     public static Enseignants Load(string filename)
         {
-            filename = System.IO.Path.Combine(FileSystem.AppDataDirectory, filename);
+            filename = System.IO.Path.Combine(Config.RootDir, filename);
 
             if (!File.Exists(filename))
                 throw new FileNotFoundException("Unable to find file on local storage.", filename);
@@ -58,7 +58,7 @@ public class Enseignants : Persons
             return Directory
 
                     // Select the file names from the directory
-                    .EnumerateFiles(appDataPath, "*.notes.txt")
+                    .EnumerateFiles(Config.RootDir, "*.notes.txt")
 
                     // Each file name is used to load a note
                     .Select(filename => Enseignants.Load(Path.GetFileName(filename)))
