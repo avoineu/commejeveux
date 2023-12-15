@@ -12,7 +12,8 @@
 
         <Entry Placeholder="Nom de l'activité" x:Name="ActivityNameEntry" VerticalOptions="Center"/>
         <Entry Placeholder="Trigramme de l'activité" x:Name="ActivityCodeEntry" VerticalOptions="Center"/>
-        <Entry Placeholder="Nombre d'Ects de l'activité" x:Name="EctsEntry" VerticalOptions="Center"/>
+        <Entry Placeholder="Nombre d'Ects de l'activité" x:Name="ActivityEctsEntry" VerticalOptions="Center"/>
+        <Picker Title="Select Teacher" x:Name="TeacherPicker" VerticalOptions="Center" />
 
         <Button Text="Add Activty"
                 VerticalOptions="CenterAndExpand"

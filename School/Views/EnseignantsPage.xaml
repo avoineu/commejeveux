@@ -8,7 +8,7 @@
             Text="Liste des Enseignants !"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
-            FontSize="22" />
+            FontSize="42" />
 
         <Entry Placeholder="Firstname" x:Name="FirstnameEntry" VerticalOptions="Center"/>
         <Entry Placeholder="Lastname" x:Name="LastnameEntry" VerticalOptions="Center"/>
