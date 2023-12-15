@@ -17,6 +17,7 @@ public class Enseignants : Persons
     public override string ToString()
     {
         return String.Format("{0} ({1})", DisplayName, salary);
+        //return DisplayName
     }
 
     public int Salary {

@@ -13,10 +13,12 @@
         <Entry Placeholder="Nom de l'activité" x:Name="ActivityNameEntry" VerticalOptions="Center"/>
         <Entry Placeholder="Trigramme de l'activité" x:Name="ActivityCodeEntry" VerticalOptions="Center"/>
         <Entry Placeholder="Nombre d'Ects de l'activité" x:Name="ActivityEctsEntry" VerticalOptions="Center"/>
-        <Picker Title="Select Teacher" x:Name="TeacherPicker" VerticalOptions="Center" />
+        <Picker x:Name="TeacherPicker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                    SelectedItem="{Binding Selection}" />
 
         <Button Text="Add Activty"
+                Clicked="OnAddActivityClicked"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 </ContentPage>

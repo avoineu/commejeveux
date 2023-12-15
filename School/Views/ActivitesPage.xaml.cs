@@ -6,7 +6,7 @@ using School.Models;
 
 public partial class ActivitesPage : ContentPage
 {
-	private EnseignantsPage enseignantsPage;
+	private EnseignantsPage enseignantsPage = new EnseignantsPage();
 
 	public ActivitesPage(){
 		InitializeComponent();
@@ -15,7 +15,6 @@ public partial class ActivitesPage : ContentPage
 	{
 		InitializeComponent();
 		this.enseignantsPage = enseignantsPage;
-
 	}
 
     protected override void OnAppearing()
@@ -23,11 +22,19 @@ public partial class ActivitesPage : ContentPage
         base.OnAppearing();
 		if( enseignantsPage != null){
 			this.BindingContext = this;
-			Console.WriteLine("Number of teachers in the list: " + enseignantsPage.enseignantsList.Count);
+			// Console.WriteLine("Number of teachers in the list: " + enseignantsPage.enseignantsList.Count);
+			// Console.WriteLine("ListTeacher First element"+enseignantsPage.enseignantsList[0]);
+			// Console.WriteLine("DIsplayName test "+enseignantsPage.enseignantsList[0].DisplayName);
 			if( TeacherPicker != null){
+						// Console.WriteLine("Number of teachers before setting ItemsSource: " + enseignantsPage.enseignantsList.Count);
 						TeacherPicker.ItemsSource = enseignantsPage.enseignantsList.Select(ens => ens.DisplayName).ToList();
+						// TeacherPicker.ItemsSource = enseignantsPage.enseignantsList; //Display the salary with it
+						// Console.WriteLine("Displays teachers in the picker");
+						TeacherPicker.IsVisible = true;
+						// Console.WriteLine("Number of teachers after setting ItemsSource: " + TeacherPicker.ItemsSource.Count);
+
 			}}
-		else{Console.WriteLine("EnseignantsPage.enseignantsList is null");}
+		// else{Console.WriteLine("EnseignantsPage.enseignantsList is null");}
     }
 
     private void OnAddActivityClicked(object sender, EventArgs e){
@@ -37,6 +44,7 @@ public partial class ActivitesPage : ContentPage
 
 		if(int.TryParse(ActivityEctsEntry.Text, out ects)){
 			Enseignants selectedTeacher = TeacherPicker.SelectedItem as Enseignants;
+			Console.WriteLine("Prof selectione"+TeacherPicker.SelectedItem );
 			if(selectedTeacher != null){
 				Activity newactivity = new Activity(activityName,CodeName,ects, selectedTeacher);
 
