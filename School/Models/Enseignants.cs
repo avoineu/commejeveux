@@ -10,7 +10,8 @@ public class Enseignants : Persons
 
     public Enseignants(string firstname, string lastname, int salary) : base(firstname, lastname) {
         this.salary = salary;
-        Filename = $"{Path.GetRandomFileName()}.notes.txt";
+        string namestockfile = lastname + firstname;
+        Filename = $"{namestockfile}.notes.txt";
     }
 
     public override string ToString()
