@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
+﻿using Microsoft.Maui.Controls.Compatibility.Platform;
 
 namespace School.Models;
 

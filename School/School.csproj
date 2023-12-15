@@ -53,6 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Stock\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
