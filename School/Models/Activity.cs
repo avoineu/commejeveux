@@ -40,6 +40,6 @@ public class Activity
 
     public override string ToString()
     {
-        return String.Format("[{0}] {1} ({2})", Code, Name, Enseignants.DisplayName());
+        return String.Format("[{0}] {1} ({2})", Code, Name, Enseignants.DisplayName);
     }
 }

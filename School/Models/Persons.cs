@@ -9,8 +9,9 @@ public class Persons
         this.lastname = lastname;
     }
 
-    public string DisplayName() {
+    public string DisplayName {get {
         return String.Format("{0} {1}", lastname, firstname);
+    }
     }
 
     public string Firstname {

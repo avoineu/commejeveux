@@ -7,21 +7,21 @@ using Microsoft.Maui.Controls;
 
 public partial class EnseignantsPage : ContentPage
 {
-	private ObservableCollection<Enseignants> enseignantsList;
+	public ObservableCollection<Enseignants> enseignantsList {get; set;} = new ObservableCollection<Enseignants>();
 	private StackLayout stackLayout;
 	public EnseignantsPage()
 	{
 		InitializeComponent();
-		enseignantsList = new ObservableCollection<Enseignants>();
+		//enseignantsList = new ObservableCollection<Enseignants>();
 
 		BindingContext = this;
 
-		stackLayout = new StackLayout();
+		//stackLayout = new StackLayout();
 
-		var listView = new ListView();
-		listView.ItemsSource = enseignantsList;
+		//var listView = new ListView();
+		//listView.ItemsSource = enseignantsList;
 
-		stackLayout.Children.Add(listView);
+		//stackLayout.Children.Add(listView);
 	}
 	private void OnAddTeacherClicked(object sender, EventArgs e)
         {
@@ -33,6 +33,7 @@ public partial class EnseignantsPage : ContentPage
             {
                 Enseignants enseignant = new Enseignants(firstname, lastname, salary);
 				enseignantsList.Add(enseignant);
+				enseignant.Save();
 				Console.WriteLine("Teacher added: " + enseignant.DisplayName);
         		Console.WriteLine("Total teachers in list: " + enseignantsList.Count);
 

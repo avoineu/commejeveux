@@ -25,7 +25,7 @@ public class Etudiants : Persons
     public string Bulletin() {
         var lines = new List<String>
         {
-            String.Format("Bulletin de {0}", DisplayName())
+            String.Format("Bulletin de {0}", DisplayName)
         };
 
         foreach(var evaluation in evaluations) {
