@@ -20,5 +20,15 @@
                 Clicked="OnAddActivityClicked"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"/>
+
+        <Label Text="List of Activity:" VerticalOptions="Center" HorizontalOptions="Center" />
+        <ListView ItemsSource="{Binding activityList}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding DisplayName}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
     </StackLayout>
 </ContentPage>

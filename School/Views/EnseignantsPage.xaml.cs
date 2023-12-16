@@ -2,30 +2,21 @@ namespace School.Views;
 using School.Models;
 using System.Collections.ObjectModel;
 using System;
-using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 
 public partial class EnseignantsPage : ContentPage
 {
 	public ObservableCollection<Enseignants> enseignantsList {get; set;} = new ObservableCollection<Enseignants>();
-	private StackLayout stackLayout;
+
 	public EnseignantsPage()
 	{
 		InitializeComponent();
-		//enseignantsList = new ObservableCollection<Enseignants>();
 
 		BindingContext = this;
 
 		foreach(var ens in Enseignants.LoadAll()) {
 			enseignantsList.Add(ens);
 		}
-
-		//stackLayout = new StackLayout();
-
-		//var listView = new ListView();
-		//listView.ItemsSource = enseignantsList;
-
-		//stackLayout.Children.Add(listView);
 	}
 	private void OnAddTeacherClicked(object sender, EventArgs e)
         {

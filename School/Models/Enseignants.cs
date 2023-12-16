@@ -28,13 +28,13 @@ public class Enseignants : Persons
 
     public void Save() {
         string content = String.Format("{0}\n{1}\n{2}", Firstname, Lastname, Salary);
-        File.WriteAllText(System.IO.Path.Combine(Config.RootDir, Filename), content);
+        File.WriteAllText(System.IO.Path.Combine(Config.RootDir,"Enseignants", Filename), content);
     }
 
     public static Enseignants Load(string filename)
         {
             
-            filename = System.IO.Path.Combine(Config.RootDir, filename);
+            filename = System.IO.Path.Combine(Config.RootDir,"Enseignants", filename);
             Console.WriteLine(filename);
 
             if (!File.Exists(filename))
@@ -58,11 +58,13 @@ public class Enseignants : Persons
             // Get the folder where the notes are stored.
             string appDataPath = FileSystem.AppDataDirectory;
 
+            string enseignantsDir = System.IO.Path.Combine(Config.RootDir, "Enseignants");
+
             // Use Linq extensions to load the *.notes.txt files.
             return Directory
 
                     // Select the file names from the directory
-                    .EnumerateFiles(Config.RootDir, "*.notes.txt")
+                    .EnumerateFiles( enseignantsDir ,"*.notes.txt")
 
                     // Each file name is used to load a note
                     .Select(filename => Enseignants.Load(Path.GetFileName(filename)))
