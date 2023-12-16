@@ -1,5 +1,4 @@
 namespace School.Views;
-
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using School.Models;
@@ -43,10 +42,19 @@ public partial class ActivitesPage : ContentPage
 		int ects;
 
 		if(int.TryParse(ActivityEctsEntry.Text, out ects)){
-			Enseignants selectedTeacher = TeacherPicker.SelectedItem as Enseignants;
-			Console.WriteLine("Prof selectione"+TeacherPicker.SelectedItem );
+			string selectedTeacher = TeacherPicker.SelectedItem.ToString();
+			// Enseignants selectedTeacher = new Enseignants(TeacherPicker.SelectedItem, TeacherPicker.SelectedItem);
+			Enseignants teacher2 = null;
+			foreach( Enseignants elem in enseignantsPage.enseignantsList){
+				Console.WriteLine(Equals(selectedTeacher,elem.DisplayName));
+				Console.WriteLine(elem.DisplayName);
+					if(Equals(selectedTeacher,elem.DisplayName)){
+						teacher2 = elem ;
+					}
+			}
+			// Console.WriteLine("Prof selectione "+ selectedTeacher );
 			if(selectedTeacher != null){
-				Activity newactivity = new Activity(activityName,CodeName,ects, selectedTeacher);
+				Activity newactivity = new Activity(activityName,CodeName,ects, teacher2);
 
 				DisplayAlert("Success","Activity added succesfully","ok");
 				ActivityNameEntry.Text = string.Empty;
