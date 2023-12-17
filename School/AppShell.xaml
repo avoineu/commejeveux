@@ -27,5 +27,10 @@
         Title="Activites"
         ContentTemplate="{DataTemplate Views:ActivitesPage}"
         Route="MainPage" />
+
+        <ShellContent
+        Title="Evaluations"
+        ContentTemplate="{DataTemplate Views:EvaluationsPage}"
+        Route="MainPage" />
     </TabBar>
 </Shell>
