@@ -4,8 +4,12 @@ public class Etudiants : Persons
 {
     private List<Evaluations> evaluations;
 
+    public string Filename {get; set;}
+
     public Etudiants(string firstname, string lastname) : base(firstname, lastname) {
         evaluations = new List<Evaluations>();
+        string namestockfile = lastname + firstname;
+        Filename = $"{namestockfile}.notes.txt";
     }
 
     public void Add(Evaluations evaluation) {
@@ -35,5 +39,41 @@ public class Etudiants : Persons
         lines.Add(String.Format("Moyenne: {0}", Average()));
 
         return String.Join("\n", lines);
+    }
+
+    public override string ToString()
+    {
+        return String.Format("{0}",DisplayName);
+    }
+
+    public void Save(){
+        string content = String.Format("{0}\n{1}", Firstname, Lastname);
+        File.WriteAllText(System.IO.Path.Combine(Config.RootDir,"Etudiants", Filename), content);
+    }
+
+    public static Etudiants Load(string filename){
+        filename = System.IO.Path.Combine(Config.RootDir,"Etudiants", filename);
+
+        if (!File.Exists(filename))
+                throw new FileNotFoundException("Unable to find file on local storage.", filename);
+        
+        var content = File.ReadAllText(filename);
+        var tokens = content.Split('\n');
+
+        return
+                new(tokens[0], tokens[1])
+                {
+                    Filename = Path.GetFileName(filename),
+                };
+    }
+
+    public static IEnumerable<Etudiants> LoadAll(){
+        string appDataPath = FileSystem.AppDataDirectory;
+        string etudiantsdir =  System.IO.Path.Combine(Config.RootDir, "Etudiants");
+
+        return Directory
+                    .EnumerateFiles(etudiantsdir ,"*.notes.txt")
+                    .Select(filename => Etudiants.Load(Path.GetFileName(filename)))
+                    .OrderByDescending(note => note.DisplayName);
     }
 }

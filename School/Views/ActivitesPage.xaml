@@ -5,7 +5,7 @@
              Title="Activites">
     <StackLayout>
         <Label 
-            Text="Acitivité siuu"
+            Text="Liste des activités"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             FontSize="42"/>

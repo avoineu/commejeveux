@@ -5,7 +5,7 @@
              Title="Enseignant">
     <StackLayout>
         <Label 
-            Text="Liste des Enseignants !"
+            Text="Liste des enseignants !"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontSize="42" />

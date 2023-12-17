@@ -70,6 +70,7 @@ public partial class ActivitesPage : ContentPage
 			if(selectedTeacher != null){
 				Activity newactivity = new Activity(activityName, CodeName, ects, teacher2link);
 				newactivity.Save();
+				activityList.Add(newactivity);
 
 				DisplayAlert("Success","Activity added succesfully","ok");
 				ActivityNameEntry.Text = string.Empty;
