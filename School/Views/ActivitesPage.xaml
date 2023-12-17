@@ -25,7 +25,7 @@
         <ListView ItemsSource="{Binding activityList}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding DisplayName}" />
+                <TextCell Text="{Binding Name}" Detail="{Binding ECTS, StringFormat='{0} ects'}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

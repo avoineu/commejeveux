@@ -8,15 +8,24 @@ public partial class ActivitesPage : ContentPage
 {
 	private EnseignantsPage enseignantsPage = new EnseignantsPage();
 
+	public ObservableCollection<Enseignants> enseignantsList {get; set;} = new ObservableCollection<Enseignants>();
+
 	public ObservableCollection<Activity> activityList {get; set;} = new ObservableCollection<Activity>();
 
 	public ActivitesPage(){
 		InitializeComponent();
 		Console.WriteLine("pas le bon");
+		BindingContext = this;
+
+		foreach(var ens in Activity.LoadAll(enseignantsList)){
+		activityList.Add(ens);
+		Console.WriteLine(" le bon");
+		}
 	}
 	public ActivitesPage(EnseignantsPage enseignantsPage)
 	{
 		InitializeComponent();
+		Console.WriteLine(" le bon");
 
 		BindingContext = this;
 		this.enseignantsPage = enseignantsPage;
