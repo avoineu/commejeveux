@@ -24,7 +24,7 @@
                     SelectedItem="{Binding Selection}" >
             </Picker>
 
-        <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+        <Picker x:Name="CotePicker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                     SelectedItem="{Binding Selection}" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
@@ -53,6 +53,7 @@
             </Picker>
 
             <Button Text="Add Cote"
+                Clicked="OnAddCoteClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="End"/>
             </HorizontalStackLayout>
@@ -69,7 +70,7 @@
         <Picker x:Name="Activity2Picker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                     SelectedItem="{Binding Selection}" >
             </Picker>
-        <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+        <Picker x:Name="AppreciationPicker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                     SelectedItem="{Binding Selection}" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
@@ -83,6 +84,7 @@
             </Picker>
 
         <Button Text="Add Appréciation"
+                Clicked="OnAddAppreciationClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="End"/>
             </HorizontalStackLayout>
