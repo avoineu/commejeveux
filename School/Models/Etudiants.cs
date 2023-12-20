@@ -14,7 +14,7 @@ public class Etudiants : Persons
 
     public void Add(Evaluations evaluation) {
         evaluations.Add(evaluation);
-    }
+    } //quand on ajoute evaluation on doit utiliser ayoub.add(16) 
 
     public double Average() {
         int total = 0;
@@ -47,7 +47,7 @@ public class Etudiants : Persons
     }
 
     public void Save(){
-        string content = String.Format("{0}\n{1}", Firstname, Lastname);
+        string content = String.Format("{0}\n{1}\n{2}", Firstname, Lastname,evaluations);
         File.WriteAllText(System.IO.Path.Combine(Config.RootDir,"Etudiants", Filename), content);
     }
 

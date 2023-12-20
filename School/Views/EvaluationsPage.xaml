@@ -11,94 +11,20 @@
             FontSize="42"/>
 
             <Label 
-            Text="Ajouter une appréciation :"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" 
-            FontSize="22"/>
-
-        <HorizontalStackLayout Spacing="50">
-        <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"
-                    SelectedItem="{Binding Selection}" >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Ayoub</x:String>
-                        <x:String>Tim</x:String>
-                        <x:String>Lurkin</x:String>
-                        <x:String>Etudiant 3</x:String>
-                        <x:String>Etudiant 4</x:String>
-                        <x:String>Etudiant 5</x:String>
-                        <x:String>Etudiant 6</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
-                    SelectedItem="{Binding Selection}" >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Mathématique</x:String>
-                        <x:String>Francais</x:String>
-                        <x:String>Histoire</x:String>
-                        <x:String>Néerlandais</x:String>
-                        <x:String>Chimie</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
-                    SelectedItem="{Binding Selection}" >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>X</x:String>
-                        <x:String>TB</x:String>
-                        <x:String>B</x:String>
-                        <x:String>C</x:String>
-                        <x:String>N</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Button Text="Add Appréciation"
-                VerticalOptions="Center"
-                HorizontalOptions="End"/>
-        </HorizontalStackLayout>
-
-            <Label 
             Text="Ajouter une cote :"
             VerticalOptions="Center" 
             HorizontalOptions="Start" 
             FontSize="22"/>
 
         <HorizontalStackLayout Spacing="50">
-        <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"
+        <Picker x:Name="StudentPicker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"
+                    SelectedItem="{Binding Selection}" />
+        
+        <Picker x:Name="ActivityPicker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                     SelectedItem="{Binding Selection}" >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Ayoub</x:String>
-                        <x:String>Tim</x:String>
-                        <x:String>Lurkin</x:String>
-                        <x:String>Etudiant 3</x:String>
-                        <x:String>Etudiant 4</x:String>
-                        <x:String>Etudiant 5</x:String>
-                        <x:String>Etudiant 6</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
             </Picker>
 
         <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
-                    SelectedItem="{Binding Selection}" >
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Mathématique</x:String>
-                        <x:String>Francais</x:String>
-                        <x:String>Histoire</x:String>
-                        <x:String>Néerlandais</x:String>
-                        <x:String>Chimie</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                     SelectedItem="{Binding Selection}" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
@@ -129,6 +55,38 @@
             <Button Text="Add Cote"
                 VerticalOptions="Center"
                 HorizontalOptions="End"/>
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <Label 
+            Text="Ajouter une appréciation :"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" 
+            FontSize="22"/>
+
+        <HorizontalStackLayout Spacing="50">
+        <Picker x:Name="Student2Picker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start"
+                    SelectedItem="{Binding Selection}" />
+        <Picker x:Name="Activity2Picker" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                    SelectedItem="{Binding Selection}" >
+            </Picker>
+        <Picker  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                    SelectedItem="{Binding Selection}" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>X</x:String>
+                        <x:String>TB</x:String>
+                        <x:String>B</x:String>
+                        <x:String>C</x:String>
+                        <x:String>N</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+        <Button Text="Add Appréciation"
+                VerticalOptions="Center"
+                HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+
+
     </StackLayout>
 </ContentPage>

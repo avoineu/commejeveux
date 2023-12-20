@@ -4,7 +4,7 @@ public class Cotes : Evaluations
 {
     private int note;
 
-    public Cotes(Activity activity, int note) : base(activity) {
+    public Cotes(Activity activity,int note) : base(activity) {
         SetNote(note);
     }
 
