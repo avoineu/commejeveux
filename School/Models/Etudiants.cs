@@ -38,7 +38,8 @@ public class Etudiants : Persons
         foreach(var evaluation in evaluations) {
             lines.Add(evaluation.ToString());
         }
-
+        Console.WriteLine("coucou2");
+        Console.WriteLine("jy crois pas trop "+evaluations.Count());
         lines.Add(String.Format("Moyenne: {0}", Average()));
         Console.WriteLine("méthode bulletin");
 

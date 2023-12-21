@@ -32,5 +32,10 @@
         Title="Evaluations"
         ContentTemplate="{DataTemplate Views:EvaluationsPage}"
         Route="MainPage" />
+
+        <ShellContent
+        Title="Bulletins"
+        ContentTemplate="{DataTemplate Views:BulletinPage}"
+        Route="MainPage" />
     </TabBar>
 </Shell>
