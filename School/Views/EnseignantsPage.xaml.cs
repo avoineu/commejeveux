@@ -15,6 +15,7 @@ public partial class EnseignantsPage : ContentPage
 		BindingContext = this;
 
 		LoadEnseignantsList();
+		DisplayTotalSalary();
 	}
 	public void LoadEnseignantsList()
 	{
@@ -24,6 +25,21 @@ public partial class EnseignantsPage : ContentPage
 		{
 			enseignantsList.Add(ens);
 		}
+	}
+
+	public string TotalSalary(){
+		int totalsalary = 0;
+		if(enseignantsList == null){
+			return "0 de cout total";
+		}
+		foreach(var enseignant in enseignantsList){
+			totalsalary += enseignant.Salary;
+		}
+		return String.Format("Le cout mensuelle est de {0}€ \nLe cout annuel est de {1}€",totalsalary,totalsalary*12);
+	}
+
+	private void DisplayTotalSalary(){
+		SalaryTotalLabel.Text = TotalSalary();
 	}
 	private void OnAddTeacherClicked(object sender, EventArgs e)
         {
@@ -44,6 +60,7 @@ public partial class EnseignantsPage : ContentPage
 				FirstnameEntry.Text = string.Empty;
 				LastnameEntry.Text = string.Empty;
         		SalaryEntry.Text = string.Empty;
+				DisplayTotalSalary();
             }
             else
             {
