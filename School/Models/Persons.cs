@@ -10,7 +10,7 @@ public class Persons
     }
 
     public string DisplayName {get {
-        return String.Format("{0} {1}", lastname, firstname);
+        return String.Format("{0} {1}", firstname, lastname);
     }
     }
 

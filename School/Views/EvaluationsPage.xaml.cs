@@ -29,6 +29,8 @@ public partial class EvaluationsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+		etudiantsPage.LoadEtudiantsList();
+		activityPage.LoadActivityList();
 		if( etudiantsPage != null){
 			this.BindingContext = this;
 			if( StudentPicker != null){
@@ -49,6 +51,13 @@ public partial class EvaluationsPage : ContentPage
 						Activity2Picker.ItemsSource = activityPage.activityList.Select(elem => elem.Code).ToList();
 						Activity2Picker.IsVisible = true;
 			}}
+    }
+
+	protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+		etudiantsPage.LoadEtudiantsList();
+		activityPage.LoadActivityList();
     }
 
 	private void OnAddCoteClicked(object sender, EventArgs e){

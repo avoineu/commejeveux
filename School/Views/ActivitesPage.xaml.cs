@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using School.Models;
 using System.Collections.ObjectModel;
+using IntentsUI;
+
+//using System.Diagnostics;
 
 public partial class ActivitesPage : ContentPage
 {
@@ -17,9 +20,13 @@ public partial class ActivitesPage : ContentPage
 		Console.WriteLine("pas le bon");
 		BindingContext = this;
 
+		LoadActivityList();
+	}
+
+	public void LoadActivityList(){
+		activityList.Clear();
 		foreach(var ens in Activity.LoadAll(enseignantsList)){
 		activityList.Add(ens);
-		Console.WriteLine(" le bon");
 		}
 	}
 	public ActivitesPage(EnseignantsPage enseignantsPage)
@@ -39,12 +46,19 @@ public partial class ActivitesPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+		enseignantsPage.LoadEnseignantsList();
 		if( enseignantsPage != null){
 			this.BindingContext = this;
 			if( TeacherPicker != null){
 						TeacherPicker.ItemsSource = enseignantsPage.enseignantsList.Select(ens => ens.DisplayName).ToList();
 						TeacherPicker.IsVisible = true;
 			}}
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+		enseignantsPage.LoadEnseignantsList();
     }
 
     private void OnAddActivityClicked(object sender, EventArgs e){

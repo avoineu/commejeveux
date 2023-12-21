@@ -14,7 +14,14 @@ public partial class EnseignantsPage : ContentPage
 
 		BindingContext = this;
 
-		foreach(var ens in Enseignants.LoadAll()) {
+		LoadEnseignantsList();
+	}
+	public void LoadEnseignantsList()
+	{
+		enseignantsList.Clear();
+
+		foreach (var ens in Enseignants.LoadAll())
+		{
 			enseignantsList.Add(ens);
 		}
 	}

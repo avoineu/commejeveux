@@ -15,6 +15,7 @@ public class Etudiants : Persons
     public void Add(Evaluations evaluation) {
         evaluations.Add(evaluation);
         Console.WriteLine("méthode add");
+        Console.WriteLine("evaluation de add : "+evaluations);
     } //quand on ajoute evaluation on doit utiliser ayoub.add(16) 
 
     public double Average() {
@@ -49,7 +50,9 @@ public class Etudiants : Persons
     }
 
     public void Save(){
+        Console.WriteLine("evaluation de save : "+evaluations);
         string evaluationsContent = string.Join("\n", evaluations.Select(evaluation => evaluation.ToString()));
+        Console.WriteLine("evaluation content : "+evaluationsContent);
         string content = String.Format("{0}\n{1}\n{2}", Firstname, Lastname,evaluationsContent);
         File.WriteAllText(System.IO.Path.Combine(Config.RootDir,"Etudiants", Filename), content);
         Console.WriteLine("méthode save");
