@@ -47,6 +47,9 @@ public class Activity
 
     public override string ToString()
     {
+        Console.WriteLine("Code: {0}", Code);
+        Console.WriteLine("Name: {0}", Name);
+        Console.WriteLine("DisplayNAme: {0}", Enseignants.DisplayName);
         return String.Format("[{0}] {1} ({2})", Code, Name, Enseignants.DisplayName);
     }
 
@@ -69,10 +72,19 @@ public class Activity
         Console.WriteLine("Activité chargé : {0} {1} {2} {3}", tokens[0], tokens[1], tokens[2], tokens[3]);
 
         foreach(Enseignants elem in enseignantsList){
-            if(Equals(tokens[3],elem.DisplayName)){
+            Console.WriteLine("ELEM : "+elem);
+            Console.WriteLine("ELEM.ToString()"+elem.ToString());
+            Console.WriteLine("TOKENS 3 : "+tokens[3] );
+            if(Equals(tokens[3],elem.ToString())){
                 teacher2link = elem;
+                Console.WriteLine("found");
             }
         }
+
+        if(teacher2link == null) {
+            Console.WriteLine("Teacher not found: {0}", tokens[3]);
+        }
+
         return 
             new(tokens[0], tokens[1], Convert.ToInt32(tokens[2]),teacher2link)
             {

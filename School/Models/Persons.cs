@@ -10,7 +10,10 @@ public class Persons
     }
 
     public string DisplayName {get {
-        return String.Format("{0} {1}", firstname, lastname);
+        Console.WriteLine("In DisplayNAme");
+        Console.WriteLine("firstname: {0}", firstname);
+        Console.WriteLine("lastname: {0}", lastname);
+        return String.Format("{0} {1}", lastname, firstname);
     }
     }
 

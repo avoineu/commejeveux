@@ -13,6 +13,7 @@ public class Etudiants : Persons
     }
 
     public void Add(Evaluations evaluation) {
+        Console.WriteLine("eval: {0}", evaluation);
         evaluations.Add(evaluation);
         Console.WriteLine("méthode add");
         Console.WriteLine("evaluation de add : "+evaluations);
@@ -51,6 +52,11 @@ public class Etudiants : Persons
 
     public void Save(){
         Console.WriteLine("evaluation de save : "+evaluations);
+        if(evaluations.Count > 0) {
+            Console.WriteLine("yop");
+            Console.WriteLine("truc: {0}", evaluations[0]);
+        }
+        
         string evaluationsContent = string.Join("\n", evaluations.Select(evaluation => evaluation.ToString()));
         Console.WriteLine("evaluation content : "+evaluationsContent);
         string content = String.Format("{0}\n{1}\n{2}", Firstname, Lastname,evaluationsContent);

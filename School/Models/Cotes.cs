@@ -18,6 +18,7 @@ public class Cotes : Evaluations
 
     public override int Note()
     {
+        Console.WriteLine("In Note/Cote");
         return note;
     }
 }

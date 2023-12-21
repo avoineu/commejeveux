@@ -70,12 +70,14 @@ public partial class EvaluationsPage : ContentPage
 		foreach(Models.Activity elem in activityList){
 			if(Equals(activityselected,elem.Code)){
 				activity2link = elem;
-				Console.WriteLine("activité trouvé !");
+				Console.WriteLine("activité trouvé ! {0}", activity2link);
 			}
 		}
 		Cotes cotesadded = new Cotes(activity2link);
 		cotesadded.SetNote(int.Parse(coteselected));//converti string en chiffre
 
+		Console.WriteLine("cotesadded: {0}", cotesadded);
+		
 		Etudiants etudiants2link = null;
 
 		foreach(Etudiants elem in etudiantsList){
