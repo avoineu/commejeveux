@@ -19,9 +19,6 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />
 
-
-    <Label x:Name="SalaryTotalLabel" Text="Monthly Salary: " VerticalOptions="Center" HorizontalOptions="Center" />
-
         <Label Text="List of Teachers:" VerticalOptions="Center" HorizontalOptions="Center" />
         <ListView ItemsSource="{Binding enseignantsList}">
         <ListView.ItemTemplate>
@@ -30,6 +27,8 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+
+    <Label x:Name="SalaryTotalLabel" Text="Monthly Salary: " VerticalOptions="Center" HorizontalOptions="Center" FontSize="22"/>
 
         
     </StackLayout>

@@ -1,4 +1,10 @@
 ﻿namespace School.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 public class Etudiants : Persons
 {
@@ -6,10 +12,13 @@ public class Etudiants : Persons
 
     public string Filename {get; set;}
 
+    public Dictionary<string, int> Grades {get; set;}
+
     public Etudiants(string firstname, string lastname) : base(firstname, lastname) {
         evaluations = new List<Evaluations>();
         string namestockfile = lastname + firstname;
         Filename = $"{namestockfile}.notes.txt";
+        Grades = new Dictionary<string, int>();
     }
 
     public void Add(Evaluations evaluation) {
@@ -68,6 +77,7 @@ public class Etudiants : Persons
 
     public static Etudiants Load(string filename){
         filename = System.IO.Path.Combine(Config.RootDir,"Etudiants", filename);
+        var grades = new Dictionary<string, int>();
 
         if (!File.Exists(filename))
                 throw new FileNotFoundException("Unable to find file on local storage.", filename);
@@ -75,10 +85,31 @@ public class Etudiants : Persons
         var content = File.ReadAllText(filename);
         var tokens = content.Split('\n');
 
+        if (tokens.Length > 2)
+                {
+                    for (int i = 2; i < tokens.Length; i++)
+                    {
+                        if (!string.IsNullOrWhiteSpace(tokens[i]) && tokens[i].Contains(":"))
+                        {
+                            var evaluationTokens = tokens[i].Split(':');
+                            var nameMatch = Regex.Match(evaluationTokens[0], @"\[(.*?)\]");
+
+                            if (nameMatch.Success)
+                            {
+                                var nomevaluation = nameMatch.Groups[1].Value.Trim();
+                                var note = int.Parse(evaluationTokens[1].Split('/')[0].Trim());
+
+                                grades[nomevaluation] = note;
+                                Console.WriteLine("bon début");
+                            }
+                        }
+                    }
+                }
         return
                 new(tokens[0], tokens[1])
                 {
                     Filename = Path.GetFileName(filename),
+                    Grades =  grades,
                 };
     }
 

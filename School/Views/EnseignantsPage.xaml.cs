@@ -35,7 +35,7 @@ public partial class EnseignantsPage : ContentPage
 		foreach(var enseignant in enseignantsList){
 			totalsalary += enseignant.Salary;
 		}
-		return String.Format("Le cout mensuelle est de {0}€ \nLe cout annuel est de {1}€",totalsalary,totalsalary*12);
+		return String.Format("Le cout mensuelle total des salaires est de {0}€ \nLe cout annuel total des salaires est de {1}€",totalsalary,totalsalary*12);
 	}
 
 	private void DisplayTotalSalary(){

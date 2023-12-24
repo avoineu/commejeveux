@@ -26,13 +26,7 @@
                 HorizontalOptions="End"/>
         </HorizontalStackLayout>
 
-        <Label Text="Bulletin:" VerticalOptions="Center" HorizontalOptions="Center" />
-        <ListView ItemsSource="{Binding selectedbulletin}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}" Detail="{Binding ECTS, StringFormat='{0} ects'}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        <Label Text="Bulletin:" VerticalOptions="Center" HorizontalOptions="Center"  FontSize="22"/>
+        <Label x:Name="BulletinLabel" Text="{Binding Bulletin}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="22"/>
     </StackLayout>
 </ContentPage>
