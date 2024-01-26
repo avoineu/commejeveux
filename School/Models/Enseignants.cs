@@ -55,21 +55,16 @@ public class Enseignants : Persons
 
         public static IEnumerable<Enseignants> LoadAll()
         {
-            // Get the folder where the notes are stored.
             string appDataPath = FileSystem.AppDataDirectory;
 
             string enseignantsDir = System.IO.Path.Combine(Config.RootDir, "Enseignants");
 
-            // Use Linq extensions to load the *.notes.txt files.
             return Directory
 
-                    // Select the file names from the directory
                     .EnumerateFiles( enseignantsDir ,"*.notes.txt")
 
-                    // Each file name is used to load a note
                     .Select(filename => Enseignants.Load(Path.GetFileName(filename)))
 
-                    // With the final collection of notes, order them by name
                     .OrderByDescending(note => note.DisplayName);
         }
     }

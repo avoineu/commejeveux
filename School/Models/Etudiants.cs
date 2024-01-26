@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Collections.ObjectModel;
 
 public class Etudiants : Persons
 {
@@ -26,7 +25,7 @@ public class Etudiants : Persons
         evaluations.Add(evaluation);
         Console.WriteLine("méthode add");
         Console.WriteLine("evaluation de add : "+evaluations);
-    } //quand on ajoute evaluation on doit utiliser ayoub.add(16) 
+    } 
 
     public double Average() {
         int total = 0;

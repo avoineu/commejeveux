@@ -1,11 +1,7 @@
 namespace School.Views;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using School.Models;
 using System.Collections.ObjectModel;
-using IntentsUI;
-
-//using System.Diagnostics;
 
 public partial class ActivitesPage : ContentPage
 {
@@ -17,7 +13,6 @@ public partial class ActivitesPage : ContentPage
 
 	public ActivitesPage(){
 		InitializeComponent();
-		Console.WriteLine("pas le bon");
 		BindingContext = this;
 
 		LoadActivityList();
@@ -32,14 +27,12 @@ public partial class ActivitesPage : ContentPage
 	public ActivitesPage(EnseignantsPage enseignantsPage)
 	{
 		InitializeComponent();
-		Console.WriteLine(" le bon");
 
 		BindingContext = this;
 		this.enseignantsPage = enseignantsPage;
 
 		foreach(var ens in Activity.LoadAll(enseignantsPage.enseignantsList)){
 		activityList.Add(ens);
-		Console.WriteLine(" le bon");
 		}
 	}
 
@@ -68,7 +61,6 @@ public partial class ActivitesPage : ContentPage
 
 		if(int.TryParse(ActivityEctsEntry.Text, out ects)){
 			string selectedTeacher = TeacherPicker.SelectedItem.ToString();
-			// Enseignants selectedTeacher = new Enseignants(TeacherPicker.SelectedItem, TeacherPicker.SelectedItem);
 			Enseignants teacher2link = null;
 	
 			foreach( Enseignants elem in enseignantsPage.enseignantsList){
@@ -80,7 +72,6 @@ public partial class ActivitesPage : ContentPage
 						teacher2link = elem ;
 					}
 			}
-			// Console.WriteLine("Prof selectione "+ selectedTeacher );
 			if(selectedTeacher != null){
 				Activity newactivity = new Activity(activityName, CodeName, ects, teacher2link);
 				newactivity.Save();

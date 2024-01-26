@@ -60,8 +60,6 @@ public partial class BulletinPage : ContentPage
 		int totalECTS = 0;
 		int total = 0;
 		foreach (var grade in bulleting){
-			Console.WriteLine("on est dans le dico");
-			Console.WriteLine($"Activity Code: {grade.Key}, Note: {grade.Value}");
 			Models.Activity activityFound = null;
 			foreach (Models.Activity activity in activitesPage.activityList){
                  if (Equals(grade.Key, activity.Code)){
@@ -69,12 +67,11 @@ public partial class BulletinPage : ContentPage
 					total += grade.Value * activityFound.ECTS;
 					totalECTS += activityFound.ECTS;
 					lines.Add($"[{activityFound.Code}] Cours de {activityFound.Name} : {grade.Value}/20   ({activityFound.ECTS} ECTS)");
-					Console.WriteLine("TROUVER");}}
+					}}
 		}
 		int average = total/totalECTS;
 		lines.Add($"Moyenne : {average}");
 		var Bulletin = String.Join("\n", lines);
-		Console.WriteLine(Bulletin);
 		DisplayAlert("Success", "Le bulletin a bien été affiché", "OK");
 		BulletinLabel.Text = Bulletin;
 	}

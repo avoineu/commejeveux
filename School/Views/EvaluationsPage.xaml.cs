@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Collections.ObjectModel;
 using School.Models;
 namespace School.Views;
@@ -64,32 +63,26 @@ public partial class EvaluationsPage : ContentPage
 		string studentselected = StudentPicker.SelectedItem.ToString();
 		string activityselected = ActivityPicker.SelectedItem.ToString();
 		string coteselected = CotePicker.SelectedItem.ToString();
-		Console.WriteLine("student :"+studentselected+" activité :"+activityselected+" cote :"+coteselected);
 		Models.Activity activity2link = null;
 
 		foreach(Models.Activity elem in activityList){
 			if(Equals(activityselected,elem.Code)){
 				activity2link = elem;
-				Console.WriteLine("activité trouvé ! {0}", activity2link);
 			}
 		}
 		Cotes cotesadded = new Cotes(activity2link);
-		cotesadded.SetNote(int.Parse(coteselected));//converti string en chiffre
-
-		Console.WriteLine("cotesadded: {0}", cotesadded);
+		cotesadded.SetNote(int.Parse(coteselected));
 		
 		Etudiants etudiants2link = null;
 
 		foreach(Etudiants elem in etudiantsList){
 			if(Equals(studentselected,elem.DisplayName)){
 				etudiants2link = elem;
-				Console.WriteLine("étudiants trouvé !");
 			}
 		}
 		DisplayAlert("Success", "Cote added successfully. It worked!", "OK");
 		etudiants2link.Add(cotesadded);
 		etudiants2link.Save();
-		Console.WriteLine(etudiants2link.Bulletin());
 	}
 	private void OnAddAppreciationClicked(object sender, EventArgs e){
 		string selectedstudent = Student2Picker.SelectedItem.ToString();

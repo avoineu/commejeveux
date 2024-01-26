@@ -45,15 +45,12 @@ public partial class EnseignantsPage : ContentPage
         {
             string firstname = FirstnameEntry.Text;
             string lastname = LastnameEntry.Text;
-			Console.WriteLine("Hi");
 
             if (int.TryParse(SalaryEntry.Text, out int salary))
             {
                 Enseignants enseignant = new Enseignants(firstname, lastname, salary);
 				enseignantsList.Add(enseignant);
 				enseignant.Save();
-				Console.WriteLine("Teacher added: " + enseignant.DisplayName);
-        		Console.WriteLine("Total teachers in list: " + enseignantsList.Count);
 
 				DisplayAlert("Success", "Teacher added successfully. It worked!", "OK");
 
