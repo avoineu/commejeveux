@@ -1,5 +1,5 @@
 # Projet MAUI : comme je veux
-Projet a été réalisé par Couturier Timothé `20091` et Ben Yamoune Ayoub `21160` dans le cadre des laboratoires concepts informatiques.
+Ce projet a été réalisé par Couturier Timothé `20091` et Ben Yamoune Ayoub `21160` dans le cadre des laboratoires concepts informatiques.
 
 ## Introduction
 Ce projet MAUI vise à concevoir une application complète pour la gestion des étudiants, des enseignants, des activités, des notes, et des bulletins au sein d'une école.
@@ -16,17 +16,17 @@ L'exemple ci-dessus montre l'ajout réussi de l'étudiant "Étudiants ReadMe".
 ![Alt text](imagesreadme/studentadded.png)
 
 ### Création d'un enseignant
-Pour ajouter un enseignant, rendez-vous sur la page "Enseignants" et entrez le nom, le prénom, et le salaire correspondant.
+Pour ajouter un enseignant, rendez-vous sur la page "Enseignants" et entrez le nom, le prénom et le salaire correspondant.
 ![Alt text](imagesreadme/ajoutteacher.png)
 L'exemple ci-dessus montre l'ajout réussi de l'enseignant "Enseignants ReadMe".
 ![Alt text](imagesreadme/teacheradded.png)
 ### Création d'une activité
-Ajoutez une activité en accédant à la page "Activités" et en entrant le nom de l'activité, le trigramme, le nombre de crédits, et en sélectionnant l'enseignant correspondant.
+Ajoutez une activité en accédant à la page "Activites" et en entrant le nom de l'activité, le trigramme, le nombre de crédits et en sélectionnant l'enseignant correspondant.
 ![Alt text](imagesreadme/ajoutactivity.png)
 L'exemple ci-dessus montre la création réussie de l'activité "Cours ReadMe" avec 4 crédits.
 ![Alt text](imagesreadme/activityadded.png)
-### Création d'une évaluations 
-Ajoutez une cote ou une appréciation en sélectionnant l'étudiant, le trigramme du cours, et en spécifiant la cote ou l'appréciation.
+### Création d'une évaluation 
+Ajoutez une cote ou une appréciation en sélectionnant l'étudiant, le trigramme du cours et en spécifiant la cote ou l'appréciation.
 ![Alt text](imagesreadme/ajoutevaluation.png)
 ### Création d'un bulletin 
 Sélectionnez un étudiant pour afficher son bulletin.
@@ -42,7 +42,7 @@ Toutes les données sont sauvegardées dans des fichiers texte. Voici quelques e
 Notre fonctionnalité supplémentaire propose un affichage budgétaire de l'école, offrant ainsi une vue sur les coûts mensuels et annuels des salaires des enseignants.
 ![Alt text](imagesreadme/teacheradded.png)
 
-## Diagramme 
+## Diagrammes 
 ### Diagramme de Séquence - Ajout d'un enseignant
 Voici un diagramme représentant les différentes méthodes utilisées lors de l'ajout d'un enseignant.
 ![Alt text](imagesreadme/diagsequence.png)
@@ -55,7 +55,7 @@ Nous nous sommes efforcés de respecter les principes SOLID durant la conception
 
 
 ### S - Single Responsabillity Principle
-Le premier principe, veut que chaque classe n'ait qu'une seule responsabilité. Nous avons alors assigné une seule responsabilité à chaque classe. Par exemple, la classe `EtudiantsPage` gère uniquement les étudiants.
+Le premier principe qui est le principe de responsabilité unique veut que chaque classe n'ait qu'une seule responsabilité. Nous avons alors assigné une seule responsabilité à chaque classe. Par exemple, la classe `EtudiantsPage` gère uniquement les étudiants.
 ```csharp 
 namespace School.Views;
 using System.Collections.ObjectModel;
